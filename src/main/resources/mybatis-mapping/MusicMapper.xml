@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.IMusicDAO" >
+  <resultMap id="BaseResultMap" type="model.Music" >
+    <id column="id" property="id" jdbcType="TINYINT" />
+    <id column="singId" property="singid" jdbcType="INTEGER" />
+    <id column="name" property="name" jdbcType="VARCHAR" />
+    <result column="md5" property="md5" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="TINYINT" />
+    <result column="fullpath" property="fullpath" jdbcType="VARCHAR" />
+    <result column="collection" property="collection" jdbcType="VARCHAR" />
+    <result column="urlPic" property="urlpic" jdbcType="VARCHAR" />
+    <result column="lMusic" property="lmusic" jdbcType="VARCHAR" />
+    <result column="mMusic" property="mmusic" jdbcType="VARCHAR" />
+    <result column="hMusic" property="hmusic" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="mark" property="mark" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, singId, name, md5, source, fullpath, collection, urlPic, lMusic, mMusic,
+    hMusic, addtime, mark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="model.MusicKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from music
+    where id = #{id,jdbcType=TINYINT}
+      and singId = #{singid,jdbcType=INTEGER}
+      and name = #{name,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="model.MusicKey" >
+    delete from music
+    where id = #{id,jdbcType=TINYINT}
+      and singId = #{singid,jdbcType=INTEGER}
+      and name = #{name,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="model.Music" >
+    insert into music (id, singId, name, 
+      md5, source, fullpath, 
+      collection, urlPic,
+      lMusic, mMusic, hMusic, 
+      addtime, mark)
+    values (#{id,jdbcType=TINYINT}, #{singid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{md5,jdbcType=VARCHAR}, #{source,jdbcType=TINYINT}, #{fullpath,jdbcType=VARCHAR}, 
+      #{collection,jdbcType=VARCHAR}, #{urlpic,jdbcType=VARCHAR},
+      #{lmusic,jdbcType=VARCHAR}, #{mmusic,jdbcType=VARCHAR}, #{hmusic,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{mark,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="model.Music" >
+    insert into music
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="singid != null" >
+        singId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="md5 != null" >
+        md5,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="fullpath != null" >
+        fullpath,
+      </if>
+      <if test="collection != null" >
+        collection,
+      </if>
+      <if test="urlpic != null" >
+        urlPic,
+      </if>
+      <if test="lmusic != null" >
+        lMusic,
+      </if>
+      <if test="mmusic != null" >
+        mMusic,
+      </if>
+      <if test="hmusic != null" >
+        hMusic,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="mark != null" >
+        mark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=TINYINT},
+      </if>
+      <if test="singid != null" >
+        #{singid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="md5 != null" >
+        #{md5,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="fullpath != null" >
+        #{fullpath,jdbcType=VARCHAR},
+      </if>
+      <if test="collection != null" >
+        #{collection,jdbcType=VARCHAR},
+      </if>
+      <if test="urlpic != null" >
+        #{urlpic,jdbcType=VARCHAR},
+      </if>
+      <if test="lmusic != null" >
+        #{lmusic,jdbcType=VARCHAR},
+      </if>
+      <if test="mmusic != null" >
+        #{mmusic,jdbcType=VARCHAR},
+      </if>
+      <if test="hmusic != null" >
+        #{hmusic,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Music" >
+    update music
+    <set >
+      <if test="md5 != null" >
+        md5 = #{md5,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="fullpath != null" >
+        fullpath = #{fullpath,jdbcType=VARCHAR},
+      </if>
+      <if test="collection != null" >
+        collection = #{collection,jdbcType=VARCHAR},
+      </if>
+      <if test="urlpic != null" >
+        urlPic = #{urlpic,jdbcType=VARCHAR},
+      </if>
+
+      <if test="lmusic != null" >
+        lMusic = #{lmusic,jdbcType=VARCHAR},
+      </if>
+      <if test="mmusic != null" >
+        mMusic = #{mmusic,jdbcType=VARCHAR},
+      </if>
+      <if test="hmusic != null" >
+        hMusic = #{hmusic,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null" >
+        mark = #{mark,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=TINYINT}
+      and singId = #{singid,jdbcType=INTEGER}
+      and name = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Music" >
+    update music
+    set md5 = #{md5,jdbcType=VARCHAR},
+      source = #{source,jdbcType=TINYINT},
+      fullpath = #{fullpath,jdbcType=VARCHAR},
+      collection = #{collection,jdbcType=VARCHAR},
+      urlPic = #{urlpic,jdbcType=VARCHAR},
+      lMusic = #{lmusic,jdbcType=VARCHAR},
+      mMusic = #{mmusic,jdbcType=VARCHAR},
+      hMusic = #{hmusic,jdbcType=VARCHAR},
+      addtime = #{addtime,jdbcType=TIMESTAMP},
+      mark = #{mark,jdbcType=TINYINT}
+    where id = #{id,jdbcType=TINYINT}
+      and singId = #{singid,jdbcType=INTEGER}
+      and name = #{name,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectBySingId" resultMap="BaseResultMap" parameterType="model.Music">
+    select
+    <include refid="Base_Column_List" />
+    from music
+    WHERE  singId = #{singid,jdbcType=INTEGER}
+  </select>
+</mapper>
