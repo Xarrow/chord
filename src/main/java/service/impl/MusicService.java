@@ -7,8 +7,10 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import dao.IBaseDAO;
 import dao.IMusicDAO;
 import dao.ISingerDAO;
+import dao.impl.BaseDAO;
 import model.Music;
 import model.Singer;
 import org.apache.http.HttpHost;
@@ -34,7 +36,7 @@ import java.util.List;
  * @Time 2016/8/21.
  */
 @Service
-public class MusicService implements IMusicService {
+public class MusicService extends BaseDAO implements IMusicService {
     private static  final Logger LOGGER = LoggerFactory.getLogger(MusicService.class);
     @Autowired
     private IMusicDAO iMusicDAO;

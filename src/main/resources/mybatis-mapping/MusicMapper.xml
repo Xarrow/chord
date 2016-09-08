@@ -193,4 +193,6 @@
     from music
     WHERE  singId = #{singid,jdbcType=INTEGER}
   </select>
+
+
 </mapper>

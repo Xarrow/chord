@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface IMusicDAO {
+public interface IMusicDAO extends IBaseDAO{
 
 
     void insert(Music record);
@@ -20,5 +20,4 @@ public interface IMusicDAO {
     int updateByPrimaryKey(Music record);
 
     List<Music> selectBySingId(Integer singId);
-
 }
