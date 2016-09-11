@@ -96,7 +96,16 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
     <!--&lt;!&ndash;<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>&ndash;&gt;-->
     <!--</bean>-->
 
+    <!--使用jdbcDaoSupport-->
     <bean id="baseDao" class="dao.impl.BaseDAO">
         <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--使用jdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <!--使用simpleJdbcTemplate-->
+    <bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
     </bean>
 </beans>

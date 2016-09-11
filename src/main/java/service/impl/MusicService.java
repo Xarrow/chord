@@ -36,7 +36,7 @@ import java.util.List;
  * @Time 2016/8/21.
  */
 @Service
-public class MusicService extends BaseDAO implements IMusicService {
+public class MusicService  implements IMusicService {
     private static  final Logger LOGGER = LoggerFactory.getLogger(MusicService.class);
     @Autowired
     private IMusicDAO iMusicDAO;

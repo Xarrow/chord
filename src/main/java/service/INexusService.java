@@ -6,4 +6,6 @@ package service;
  */
 public interface INexusService {
     Object someTries();
+
+    void updateAccount();
 }
