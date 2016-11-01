@@ -5,12 +5,14 @@ http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 
 http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+       default-init-method="">
 
 
     <context:annotation-config/>
     <context:component-scan base-package="dao"/>
     <context:component-scan base-package="service"/>
+    <context:component-scan base-package="task"/>
 
     <!-- JNDI方式配置数据源 -->
     <!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> <property name="jndiName" value="${jndiName}"></property> </bean> -->
@@ -18,7 +20,16 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
     <!-- 引入配置文件 -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:maria.properties"/>
+        <property name="locations">
+            <list>
+                <value>classpath:maria.properties</value>
+                <value>classpath:chord-cas.properties</value>
+            </list>
+        </property>
+        <!--引入maria-db属性文件-->
+        <!--<property name="location" value="classpath:maria.properties"/>-->
+        <!--&lt;!&ndash;引入shiro-cas属性文件&ndash;&gt;-->
+        <!--<property name="locations" value="classpath:chord-cas.properties"/>-->
     </bean>
     <!-- 配置数据源 druid配置-->
     <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
@@ -108,5 +119,14 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
     <bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
         <constructor-arg ref="dataSource"/>
     </bean>
+
+
+    <!--线程池-->
+    <!--<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">-->
+        <!--<property name="corePoolSize" value="5"/>-->
+        <!--<property name="maxPoolSize" value="10"/>-->
+        <!--<property name="queueCapacity" value="25"/>-->
+    <!--</bean>-->
+
 
 </beans>

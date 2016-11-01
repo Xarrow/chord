@@ -11,7 +11,8 @@ import utils.ResponseVo;
 import utils.ResultCode;
 
 /**
- * Created by zhang on 2016/7/31.
+ * @Author zhang
+ * @Time 2016/7/31
  */
 @RestController
 //use @RestController to instead of @Controller + @ResponseBody

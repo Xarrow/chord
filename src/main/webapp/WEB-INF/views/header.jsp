@@ -10,6 +10,8 @@
 <html>
 <script src="<c:url value="/public/js/jquery-3.1.0.min.js"/>"></script>
 <script src="<c:url value="/public/js/materialize/js/materialize.min.js"/>"></script>
+<%--echarts--%>
+<script src="<c:url value="/public/js/echarts.min.js"/>"></script>
 <link rel="stylesheet" href="<c:url value="/public/css/materialize.min.css"/>">
 <style>
     html {

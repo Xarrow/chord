@@ -9,6 +9,9 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import dao.IMusicDAO;
 import dao.ISingerDAO;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import model.Music;
 import model.Singer;
 import org.slf4j.Logger;
@@ -19,10 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 import service.IMusicService;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @Author zhang

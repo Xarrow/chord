@@ -19,7 +19,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
     <mvn:resources mapping="/main/public/js/**" location="/public/js/"/>
     <mvn:resources mapping="/main/public/images/**" location="/public/images/"/>
     <mvn:resources mapping="/main/public/fonts/**" location="/public/fonts/"/>
-    <mvc:resources mapping="/main/public/video/**" location="/public/video/"/>
 
 
     <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->

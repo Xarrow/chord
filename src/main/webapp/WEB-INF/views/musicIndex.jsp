@@ -18,11 +18,6 @@
         margin-left: 15%;
         margin-right: 25%;
     }
-    .footer {
-        text-align: center;
-        margin: 2%;
-        color: #e0f2f1;
-    }
 </style>
 <body>
 <div class="row">
@@ -54,7 +49,8 @@
     </form>
 </div>
 <div>
+
 </div>
-<footer class="footer">Powered By Spring And Mybatis</footer>
+<div class="hiddendiv common"></div>
 </body>
 </html>
