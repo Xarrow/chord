@@ -1,9 +1,8 @@
 package model;
 
-import com.sun.istack.internal.NotNull;
+
 
 public class MusicKey {
-    @NotNull
     private Byte id;
 
     private Integer singid;

@@ -10,12 +10,16 @@
 <html>
 <script src="<c:url value="/public/js/jquery-3.1.0.min.js"/>"></script>
 <script src="<c:url value="/public/js/materialize/js/materialize.min.js"/>"></script>
-<%--<link rel="stylesheet" href="<c:url value="/public/css/materialize.min.css"/>">--%>
+<link rel="stylesheet" href="<c:url value="/public/css/materialize.min.css"/>">
 <style>
     html {
         font-family: GillSans, Calibri, Trebuchet, sans-serif;
     }
-    select{display:block}
+
+    select {
+        display: block
+    }
+
     .material-icons {
         font-family: 'Material Icons';
         font-weight: normal;
@@ -65,37 +69,61 @@
         -webkit-font-smoothing: antialiased;
     }
 
+    #myVideo {
+        position: absolute;
+        margin: auto;
+        right: 0;
+        bottom: 0;
+        /*top: 0;*/
+        width: 100%;
+        /*height: 100%;*/
+        /* in case the video doesn't fit the whole page*/
+        background: rgba(0, 0, 0, 0.3) /* our video */ center center;
+        background-size: contain;
+        object-fit: cover; /*cover video background */
+        opacity: 0.8;
+        z-index: -1;
+    }
+
+    .footer {
+        text-align: center;
+        margin: 2%;
+        color: #e0f2f1;
+    }
+
+
 </style>
-<%--dev--%>
 <link rel="stylesheet" href="<c:url value="/public/css/materialize.css"/>">
 <body>
-<!-- Dropdown Structure -->
-<%--<ul id="dropdown1" class="dropdown-content">--%>
-    <%--<li><a href="#!">one</a></li>--%>
-    <%--<li><a href="#!">two</a></li>--%>
-    <%--<li class="divider"></li>--%>
-    <%--<li><a href="#!">three</a></li>--%>
-<%--</ul>--%>
-<%--<nav>--%>
-    <%--<div class="nav-wrapper">--%>
-        <%--<a href="#" class="brand-logo">MUSIC</a>--%>
-        <%--<i class="material-icons right">code</i>--%>
-        <%--<ul class="right hide-on-med-and-down">--%>
-            <%--<!-- Dropdown Trigger -->--%>
-            <%--<li>--%>
-                <%--<a class="dropdown-button" href="#" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a>--%>
-            <%--</li>--%>
-        <%--</ul>--%>
-    <%--</div>--%>
-<%--</nav>--%>
+
+
+<%--<video autoplay="" loop="" id="myVideo">--%>
+<%--<source src="http://127.0.0.1:8082/F%3A/tmpfile/Every%20Little%20Bit%20Matters%20Google%20I%20O%202014%20on%20Vimeo.mp4">--%>
+<%--</video>--%>
 <nav class="top-nav z-depth-4">
     <div class="container">
         <div class="nav-wrapper">
             <a class="brand-logo" href="/music/163">
-                <i class="material-icons left">send</i>
-                Music</a>
+                <img height="64px" src="/public/images/GDG-program-logo.png"/>
+            </a>
         </div>
     </div>
 </nav>
 </body>
+<script>
+    window.onload = function () {
+        var video = document.createElement("video");
+        video.autoplay = "";
+        video.loop = true;
+        video.id = "myVideo";
+        video.autoplay = true;
+        video.poster = "";
+        var source = document.createElement("source");
+        source.src = "http://127.0.0.1:8082/H%3A/%E7%94%B5%E5%BD%B1/Facebook%202015%20Year%20in%20Review%20-%20Story%20of%20the%20Year.mp4";
+        video.appendChild(source);
+        document.body.appendChild(video);
+    }
+
+
+</script>
 </html>
