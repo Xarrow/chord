@@ -16,5 +16,5 @@
             <div class="col s12"><p class="white-text">Powered By SpringMVC</p></div>
         </div>
 </footer>
-</body>
+</body>6
 </html>

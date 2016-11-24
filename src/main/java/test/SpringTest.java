@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @Time 2016/9/12.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:chord-application-context.xml")
+@ContextConfiguration("classpath:chord-data.xml")
 public class SpringTest {
     @Resource(name = "nexusServiceImpl")
     private NexusServiceImpl nexusService;
