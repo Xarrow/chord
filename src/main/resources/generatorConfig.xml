@@ -9,7 +9,7 @@
     <classPathEntry
             location="E:\JetBrainerWorkSpace\zhihu-data\target\zhihu\WEB-INF\lib\mysql-connector-java-5.1.36.jar"/>
 
-    <context id="mysql" targetRuntime="MyBatis3Simple">
+    <context id="mysql" targetRuntime="MyBatis3">
 
         <!--去除注释 （true好像不起作用） -->
         <commentGenerator>
@@ -55,17 +55,15 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="dao"
                              targetProject="E:\code\chord\src\main\java">
             <property name="enableSubPackages" value="true"/>
-            <!--<property name="exampleMethodVisibility" value="false"/>-->
         </javaClientGenerator>
 
         <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等-->
         <table schema="chord-jiandan" tableName="jiandan" domainObjectName="Jiandan"
-               enableInsert="true"
                enableSelectByExample="false"
-               enableDeleteByPrimaryKey="false"
                enableDeleteByExample="false"
                enableCountByExample="false"
                enableUpdateByExample="false"
+
         />
     </context>
 </generatorConfiguration>

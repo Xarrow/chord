@@ -1,18 +1,42 @@
 package dao;
 
+import dto.JiandanQueryDto;
 import model.Jiandan;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
+
 public interface IJiandanDao {
 
-    int insert(Jiandan record);
+    int deleteByPrimaryKey(Integer id);
 
-    Jiandan selectByPrimaryKey(@Param("md5") String md5, @Param("name") String name);
 
-    List<Jiandan> selectAll();
+    int insertSelective(Jiandan record);
 
-    int updateByPrimaryKey(Jiandan record);
+    /**
+     * 查询全部条目
+     *
+     * @param jiandanQueryDto 查询dto
+     * @return list
+     */
+    List<Jiandan> selectByEntitiesSelective(JiandanQueryDto jiandanQueryDto);
+
+    int updateByPrimaryKeySelective(Jiandan record);
+
+
+    /**
+     * 获取数据库总条目
+     *
+     * @return int
+     */
+    int getTotalCount();
+
+    /**
+     * 分页查询
+     *
+     * @param jiandanQueryDto 查询dto
+     * @return list
+     */
+    List<Jiandan> selectByLimitSelective(JiandanQueryDto jiandanQueryDto);
+
+
 }

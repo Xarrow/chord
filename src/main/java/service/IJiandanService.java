@@ -1,6 +1,10 @@
 package service;
 
+import dto.JiandanQueryDto;
+import dto.JiandanResponseDto;
 import model.Jiandan;
+
+import java.util.List;
 
 /**
  * @Author zhang
@@ -10,4 +14,5 @@ public interface IJiandanService {
 
     public int insertJiandan(Jiandan jiandan);
 
+    JiandanResponseDto selectJiandanByLimit(JiandanQueryDto jiandanQueryDto);
 }

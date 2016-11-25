@@ -3,15 +3,26 @@ package model;
 import java.util.Date;
 
 public class Jiandan {
+    private Integer id;
+
     private String md5;
 
     private String name;
 
     private String fullpath;
 
+
     private Date updatetime;
 
     private Integer ext;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getMd5() {
         return md5;
