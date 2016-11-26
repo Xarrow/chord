@@ -31,5 +31,7 @@ public class JiandanQueryDto extends JiandanDto{
         this.offset = offset;
     }
 
+
+
 }
 

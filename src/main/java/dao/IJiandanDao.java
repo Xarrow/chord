@@ -39,4 +39,6 @@ public interface IJiandanDao {
     List<Jiandan> selectByLimitSelective(JiandanQueryDto jiandanQueryDto);
 
 
+
+    Jiandan selectById(Integer id);
 }

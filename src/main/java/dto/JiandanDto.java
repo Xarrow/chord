@@ -1,9 +1,15 @@
-package model;
+package dto;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class Jiandan {
-
+/**
+ * @Author zhang
+ * @Time 2016/11/26.
+ */
+public class JiandanDto {
     private Integer id;
 
     private String md5;
@@ -12,7 +18,8 @@ public class Jiandan {
 
     private String fullpath;
 
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date updatetime;
 
     private Integer ext;
@@ -63,17 +70,5 @@ public class Jiandan {
 
     public void setExt(Integer ext) {
         this.ext = ext;
-    }
-
-    @Override
-    public String toString() {
-        return "Jiandan{" +
-                "id=" + id +
-                ", md5='" + md5 + '\'' +
-                ", name='" + name + '\'' +
-                ", fullpath='" + fullpath + '\'' +
-                ", updatetime=" + updatetime +
-                ", ext=" + ext +
-                '}';
     }
 }

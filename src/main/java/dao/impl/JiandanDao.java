@@ -5,6 +5,8 @@ import dto.JiandanQueryDto;
 import model.Jiandan;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -38,7 +40,7 @@ public class JiandanDao extends SqlSessionDaoSupport implements IJiandanDao {
 
     @Override
     public List<Jiandan> selectByEntitiesSelective(JiandanQueryDto jiandanQueryDto) {
-        return sqlSessionTemplate.selectList("dao.IJiandanDao.selectByEntitiesSelective",jiandanQueryDto);
+        return sqlSessionTemplate.selectList("dao.IJiandanDao.selectByEntitiesSelective", jiandanQueryDto);
     }
 
     @Override
@@ -55,5 +57,17 @@ public class JiandanDao extends SqlSessionDaoSupport implements IJiandanDao {
     @Override
     public List<Jiandan> selectByLimitSelective(JiandanQueryDto jiandanQueryDto) {
         return sqlSessionTemplate.selectList("dao.IJiandanDao.selectByLimitSelective", jiandanQueryDto);
+    }
+
+    @Override
+    public Jiandan selectById(Integer id) {
+        Jiandan jiandan = jdbcTemplate.queryForObject("select * from jiandan where id = ?",
+                new Object[]{id}, new BeanPropertyRowMapper<Jiandan>(Jiandan.class));
+//         = new Jiandan();
+//        if(null!=jiandanList&&jiandanList.size()>1){
+//            jiandan = jiandanList.get(0);
+//        }
+        System.out.println(jiandan.toString());
+        return jiandan;
     }
 }

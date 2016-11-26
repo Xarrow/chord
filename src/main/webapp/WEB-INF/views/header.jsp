@@ -112,20 +112,20 @@
     </div>
 </nav>
 </body>
-<script>
-    window.onload = function () {
-        var video = document.createElement("video");
-        video.autoplay = "";
-        video.loop = true;
-        video.id = "myVideo";
-        video.autoplay = true;
-        video.poster = "";
-        var source = document.createElement("source");
-        source.src = "http://127.0.0.1:8082/H%3A/%E7%94%B5%E5%BD%B1/Facebook%202015%20Year%20in%20Review%20-%20Story%20of%20the%20Year.mp4";
-        video.appendChild(source);
-        document.body.appendChild(video);
-    }
+<%--<script>--%>
+    <%--window.onload = function () {--%>
+        <%--var video = document.createElement("video");--%>
+        <%--video.autoplay = "";--%>
+        <%--video.loop = true;--%>
+        <%--video.id = "myVideo";--%>
+        <%--video.autoplay = true;--%>
+        <%--video.poster = "";--%>
+        <%--var source = document.createElement("source");--%>
+        <%--source.src = "http://127.0.0.1:8082/H%3A/%E7%94%B5%E5%BD%B1/Facebook%202015%20Year%20in%20Review%20-%20Story%20of%20the%20Year.mp4";--%>
+        <%--video.appendChild(source);--%>
+        <%--document.body.appendChild(video);--%>
+    <%--}--%>
 
 
-</script>
+<%--</script>--%>
 </html>

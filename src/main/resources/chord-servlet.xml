@@ -30,12 +30,22 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
     <context:component-scan base-package="service"/>
     <context:component-scan base-package="task"/>
 
-    <!--静态资源-->
+    <!--静态资源 设置缓存-->
     <mvc:default-servlet-handler/>
-    <mvn:resources mapping="/main/public/css/**" location="/public/css/"/>
-    <mvn:resources mapping="/main/public/js/**" location="/public/js/"/>
-    <mvn:resources mapping="/main/public/images/**" location="/public/images/"/>
-    <mvn:resources mapping="/main/public/fonts/**" location="/public/fonts/"/>
+    <mvn:resources mapping="/main/public/css/**" location="/public/css/">
+        <mvc:cache-control max-age="3600" cache-public="true"/>
+    </mvn:resources>
+    <mvn:resources mapping="/main/public/js/**" location="/public/js/">
+        <mvc:cache-control max-age="3600" cache-public="true"/>
+    </mvn:resources>
+    <mvn:resources mapping="/main/public/images/**" location="/public/images/">
+        <mvc:cache-control max-age="3600" cache-public="true"/>
+    </mvn:resources>
+
+    <mvn:resources mapping="/main/public/fonts/**" location="/public/fonts/">
+        <mvc:cache-control max-age="3600" cache-public="true"/>
+    </mvn:resources>
+
 
     <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
     <!-- Json 和对象转化 -->

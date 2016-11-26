@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class JiandanResponseDto  {
 
-    private List<Jiandan> jiandanList;
+    private List<JiandanDto> jiandanList;
     /**
      * 总数
      */
@@ -31,11 +31,12 @@ public class JiandanResponseDto  {
      */
     private Integer pages;
 
-    public List<Jiandan> getJiandanList() {
+
+    public List<JiandanDto> getJiandanList() {
         return jiandanList;
     }
 
-    public void setJiandanList(List<Jiandan> jiandanList) {
+    public void setJiandanList(List<JiandanDto> jiandanList) {
         this.jiandanList = jiandanList;
     }
 
