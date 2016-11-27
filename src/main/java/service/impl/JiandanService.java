@@ -1,7 +1,5 @@
 package service.impl;
 
-import com.alibaba.druid.support.spring.stat.SpringStatUtils;
-import com.sun.javaws.CacheUtil;
 import dao.IJiandanDao;
 import dto.JiandanDto;
 import dto.JiandanQueryDto;
@@ -10,7 +8,6 @@ import model.Jiandan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import service.IJiandanService;
 
@@ -25,6 +22,7 @@ import java.util.List;
 @Service
 public class JiandanService implements IJiandanService {
     private static final Logger logger = LoggerFactory.getLogger(JiandanService.class);
+
     @Resource
     private IJiandanDao jiandanDao;
 
@@ -33,7 +31,7 @@ public class JiandanService implements IJiandanService {
         return 0;
     }
 
-    @Cacheable(value = "jiandanResponseDtoCache")
+
     @Override
     public JiandanResponseDto selectJiandanByLimit(JiandanQueryDto jiandanQueryDto) {
         JiandanResponseDto jiandanResponseDto = new JiandanResponseDto();
@@ -67,7 +65,6 @@ public class JiandanService implements IJiandanService {
 
         return jiandanDao.selectById(id);
     }
-
 
 
 }

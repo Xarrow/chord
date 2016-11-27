@@ -1,11 +1,13 @@
 package dao.impl;
 
-import dao.IBaseDAO;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 /**
  * @Author zhang
  * @Time 2016/9/7.
  */
-public class BaseDAO extends JdbcDaoSupport implements IBaseDAO{
+
+public class BaseDAO extends SqlSessionDaoSupport{
+
 }
+

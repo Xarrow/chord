@@ -9,6 +9,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.test.context.jdbc.Sql;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,13 +19,13 @@ import java.util.List;
  * @Time 2016/11/25.
  */
 @Repository
-public class JiandanDao extends SqlSessionDaoSupport implements IJiandanDao {
-
-    @Resource(name = "sqlSessionTemplate")
-    private SqlSessionTemplate sqlSessionTemplate;
+public class JiandanDao  implements IJiandanDao {
 
     @Resource(name = "jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
+
+    @Resource(name = "sqlSessionTemplate")
+    private SqlSessionTemplate sqlSessionTemplate;
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
@@ -34,13 +35,14 @@ public class JiandanDao extends SqlSessionDaoSupport implements IJiandanDao {
 
     @Override
     public int insertSelective(Jiandan record) {
-        return 0;
+        return sqlSessionTemplate.insert("dao.IJiandanDao.insertSelective", record);
     }
 
 
     @Override
     public List<Jiandan> selectByEntitiesSelective(JiandanQueryDto jiandanQueryDto) {
-        return sqlSessionTemplate.selectList("dao.IJiandanDao.selectByEntitiesSelective", jiandanQueryDto);
+        return sqlSessionTemplate.
+                selectList("dao.IJiandanDao.selectByEntitiesSelective", jiandanQueryDto);
     }
 
     @Override
@@ -50,24 +52,21 @@ public class JiandanDao extends SqlSessionDaoSupport implements IJiandanDao {
 
     @Override
     public int getTotalCount() {
+
         return jdbcTemplate.queryForInt("select count(*) as totalCount from jiandan");
     }
 
 
     @Override
     public List<Jiandan> selectByLimitSelective(JiandanQueryDto jiandanQueryDto) {
-        return sqlSessionTemplate.selectList("dao.IJiandanDao.selectByLimitSelective", jiandanQueryDto);
+        return sqlSessionTemplate.
+                selectList("dao.IJiandanDao.selectByLimitSelective", jiandanQueryDto);
     }
 
     @Override
     public Jiandan selectById(Integer id) {
         Jiandan jiandan = jdbcTemplate.queryForObject("select * from jiandan where id = ?",
                 new Object[]{id}, new BeanPropertyRowMapper<Jiandan>(Jiandan.class));
-//         = new Jiandan();
-//        if(null!=jiandanList&&jiandanList.size()>1){
-//            jiandan = jiandanList.get(0);
-//        }
-        System.out.println(jiandan.toString());
         return jiandan;
     }
 }

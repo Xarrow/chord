@@ -1,17 +1,14 @@
 package controller.jiandan;
 
-import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 import dto.JiandanQueryDto;
 import dto.JiandanResponseDto;
 import exception.InterestExcetion;
-import model.Jiandan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.IJiandanService;
-import service.impl.JiandanService;
 import test.CacheTestComponent;
 import utils.ResponseUtil;
 import utils.ResponseVo;
@@ -28,6 +25,7 @@ import javax.annotation.Resource;
 public class JiandanRestController {
 
     private static final Logger logger = LoggerFactory.getLogger(JiandanRestController.class);
+
     @Resource
     private IJiandanService iJiandanService;
 
@@ -49,10 +47,13 @@ public class JiandanRestController {
     @Autowired
     private CacheTestComponent cacheTestComponent;
 
+//    private JiandanService jiandanService;
+
     @RequestMapping("/test")
     public ResponseVo testJiandan(Integer id) {
         ResponseVo responseVo = ResponseUtil.buildVoBySuccessResult(true,
                 (cacheTestComponent.getJidanByIdCache(id)));
+
         return responseVo;
     }
 }

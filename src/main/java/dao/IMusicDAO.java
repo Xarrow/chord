@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface IMusicDAO extends IBaseDAO{
+public interface IMusicDAO {
 
 
     void insert(Music record);

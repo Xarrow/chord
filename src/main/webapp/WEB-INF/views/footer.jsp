@@ -13,8 +13,10 @@
 <body>
 <footer class="page-footer">
         <div class="row">
-            <div class="col s12"><p class="white-text">Powered By SpringMVC</p></div>
+            <div class="col s12">
+                <p class="white-text">Powered By SpringMVC</p>
+            </div>
         </div>
 </footer>
-</body>6
+</body>
 </html>
