@@ -6,6 +6,7 @@ import exception.InterestExcetion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.IJiandanService;
@@ -29,11 +30,14 @@ public class JiandanRestController {
     @Resource
     private IJiandanService iJiandanService;
 
+    @Autowired
+    private CacheTestComponent cacheTestComponent;
+
     @RequestMapping("/query")
     public ResponseVo insertJiandan(JiandanQueryDto jiandanQueryDto) {
         ResponseVo responseVo = ResponseUtil.buildVoByResultCode(false, ResultCode.FAILURE);
         try {
-            JiandanResponseDto jiandanResponseDto = iJiandanService.selectJiandanByLimit(jiandanQueryDto);
+            JiandanResponseDto jiandanResponseDto = cacheTestComponent.selectJiandanByLimitCache(jiandanQueryDto);
             responseVo = ResponseUtil.buildVoBySuccessResult(true, jiandanResponseDto);
         } catch (InterestExcetion ex) {
             responseVo = ResponseUtil.buildVoByResultCode(false, ResultCode.FAILURE, ex.getCause());
@@ -44,8 +48,6 @@ public class JiandanRestController {
 
     }
 
-    @Autowired
-    private CacheTestComponent cacheTestComponent;
 
 //    private JiandanService jiandanService;
 

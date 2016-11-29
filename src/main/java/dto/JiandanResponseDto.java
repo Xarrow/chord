@@ -2,13 +2,14 @@ package dto;
 
 import model.Jiandan;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @Author zhang
  * @Time 2016/11/26.
  */
-public class JiandanResponseDto  {
+public class JiandanResponseDto implements Serializable {
 
     private List<JiandanDto> jiandanList;
     /**

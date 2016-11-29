@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Jiandan {
+public class Jiandan implements Serializable{
 
     private Integer id;
 

@@ -3,6 +3,7 @@ package dao.impl;
 import dao.IJiandanDao;
 import dto.JiandanQueryDto;
 import model.Jiandan;
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.cache.annotation.Cacheable;
@@ -26,6 +27,10 @@ public class JiandanDao  implements IJiandanDao {
 
     @Resource(name = "sqlSessionTemplate")
     private SqlSessionTemplate sqlSessionTemplate;
+
+    @Resource
+    private SqlSession sqlSession;
+
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
@@ -59,7 +64,7 @@ public class JiandanDao  implements IJiandanDao {
 
     @Override
     public List<Jiandan> selectByLimitSelective(JiandanQueryDto jiandanQueryDto) {
-        return sqlSessionTemplate.
+        return sqlSession.
                 selectList("dao.IJiandanDao.selectByLimitSelective", jiandanQueryDto);
     }
 

@@ -7,7 +7,7 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
  * @Time 2016/9/7.
  */
 
-public class BaseDAO extends SqlSessionDaoSupport{
+public class BaseDAO<T> extends SqlSessionDaoSupport{
 
 }
 

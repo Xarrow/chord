@@ -10,7 +10,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
         <property name="locations">
             <list>
                 <!--datasource数据源文件配置-->
-                <value>classpath:maria.properties</value>
+                <value>classpath:placeHolder.properties</value>
             </list>
         </property>
     </bean>
