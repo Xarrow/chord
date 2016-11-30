@@ -68,6 +68,7 @@ public class JiandanDao  implements IJiandanDao {
                 selectList("dao.IJiandanDao.selectByLimitSelective", jiandanQueryDto);
     }
 
+
     @Override
     public Jiandan selectById(Integer id) {
         Jiandan jiandan = jdbcTemplate.queryForObject("select * from jiandan where id = ?",

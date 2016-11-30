@@ -4,7 +4,7 @@ package exception;
  * @Author zhang
  * @Time 2016/11/26.
  */
-public class InterestExcetion extends RuntimeException {
+public class InterestExcetion extends Exception {
     /**
      * 错误码
      */

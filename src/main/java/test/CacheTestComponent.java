@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.SimpleKeyGenerator;
 import org.springframework.stereotype.Component;
 import service.IJiandanService;
 import service.impl.JiandanService;
@@ -35,7 +34,7 @@ public class CacheTestComponent {
         return jiandanDao.selectById(id);
     }
 
-    @Cacheable(cacheNames = "JiandanResponseDtoCache_redis",key="'_' + #root.target.getFieldName()")
+
     public JiandanResponseDto selectJiandanByLimitCache(JiandanQueryDto jiandanQueryDto) {
         return iJiandanService.selectJiandanByLimit(jiandanQueryDto);
     }

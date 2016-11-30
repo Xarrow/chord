@@ -8,6 +8,7 @@ import model.Jiandan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import service.IJiandanService;
 
@@ -33,6 +34,8 @@ public class JiandanService implements IJiandanService {
 
 
     @Override
+    @Cacheable(value="JiandanResponseDtoCache_redis",
+            key="#p0")
     public JiandanResponseDto selectJiandanByLimit(JiandanQueryDto jiandanQueryDto) {
         JiandanResponseDto jiandanResponseDto = new JiandanResponseDto();
 

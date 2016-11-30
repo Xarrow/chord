@@ -38,10 +38,11 @@ public class JiandanRestController {
         ResponseVo responseVo = ResponseUtil.buildVoByResultCode(false, ResultCode.FAILURE);
         try {
             JiandanResponseDto jiandanResponseDto = cacheTestComponent.selectJiandanByLimitCache(jiandanQueryDto);
+            System.out.printf(jiandanResponseDto.toString());
             responseVo = ResponseUtil.buildVoBySuccessResult(true, jiandanResponseDto);
-        } catch (InterestExcetion ex) {
+        } catch (Exception ex) {
             responseVo = ResponseUtil.buildVoByResultCode(false, ResultCode.FAILURE, ex.getCause());
-            logger.error("查询jiandan接口异常:[{}]", String.valueOf(ex.getCause()));
+            logger.error("查询jiandan接口异常:[{}]", ex);
         } finally {
             return responseVo;
         }

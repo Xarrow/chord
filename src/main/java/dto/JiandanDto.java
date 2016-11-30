@@ -3,13 +3,14 @@ package dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @Author zhang
  * @Time 2016/11/26.
  */
-public class JiandanDto {
+public class JiandanDto implements Serializable{
     private Integer id;
 
     private String md5;

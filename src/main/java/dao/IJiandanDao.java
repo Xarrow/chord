@@ -2,6 +2,7 @@ package dao;
 
 import dto.JiandanQueryDto;
 import model.Jiandan;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 
@@ -40,5 +41,6 @@ public interface IJiandanDao {
 
 
 
+//    @Cacheable("jiandanCache_redis")
     Jiandan selectById(Integer id);
 }
