@@ -27,10 +27,11 @@
     <!--配置缓存管理器-->
     <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
         <constructor-arg name="redisOperations" ref="redisTemplate"/>
-        <property name="defaultExpiration" value="300"/>
         <!--设置缓存过期时间单位秒，默认不过期-->
+        <property name="defaultExpiration" value="300"/>
     </bean>
-
+    <!--key 值生成规则-->
+    <!--<bean id="simpleKeyGenerator" class="org.springframework.cache.interceptor.SimpleKeyGenerator"/>-->
     <!--启用缓存注解 注解方式配置@EnableCaching-->
     <cache:annotation-driven cache-manager="cacheManager"/>
 
