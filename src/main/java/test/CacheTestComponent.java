@@ -21,17 +21,18 @@ import javax.annotation.Resource;
 @Component
 @EnableCaching
 public class CacheTestComponent {
-    private static final Logger logger = LoggerFactory.getLogger(CacheTestComponent.class);
+    private static final Logger logger =
+            LoggerFactory.getLogger(CacheTestComponent.class);
     @Resource
     private JiandanDao jiandanDao;
 
     @Resource
     private IJiandanService iJiandanService;
 
-    @Cacheable("jiandanCache_redis")
+
     public Jiandan getJidanByIdCache(Integer id) {
         logger.info("start to query database");
-        return jiandanDao.selectById(id);
+        return iJiandanService.selectById(id);
     }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 http://www.springframework.org/schema/cache
@@ -14,19 +14,19 @@ http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!-- generic cache manager -->
     <!--<bean id="cacheManager"-->
-    <!--class="org.springframework.cache.support.SimpleCacheManager">-->
-    <!--<property name="caches">-->
-    <!--<set>-->
-    <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
-    <!--p:name="default"/>-->
+          <!--class="org.springframework.cache.support.SimpleCacheManager">-->
+        <!--<property name="caches">-->
+            <!--<set>-->
+                <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
+                      <!--p:name="default"/>-->
 
-    <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
-    <!--p:name="jiandanResponseDtoCache"/>-->
+                <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
+                      <!--p:name="jiandanResponseDtoCache"/>-->
 
-    <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
-    <!--p:name="jiandanCache"/>-->
-    <!--</set>-->
-    <!--</property>-->
+                <!--<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"-->
+                      <!--p:name="jiandanCache"/>-->
+            <!--</set>-->
+        <!--</property>-->
     <!--</bean>-->
 
 

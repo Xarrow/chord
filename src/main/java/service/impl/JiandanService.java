@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 import service.IJiandanService;
 
@@ -21,6 +22,7 @@ import java.util.List;
  * @Time 2016/11/24.
  */
 @Service
+@EnableCaching
 public class JiandanService implements IJiandanService {
     private static final Logger logger = LoggerFactory.getLogger(JiandanService.class);
 
@@ -34,8 +36,7 @@ public class JiandanService implements IJiandanService {
 
 
     @Override
-    @Cacheable(value="JiandanResponseDtoCache_redis",
-            key="#p0")
+    @Cacheable(value = "JiandanResponseDtoCache_redis", key = "#p0")
     public JiandanResponseDto selectJiandanByLimit(JiandanQueryDto jiandanQueryDto) {
         JiandanResponseDto jiandanResponseDto = new JiandanResponseDto();
 
@@ -50,9 +51,10 @@ public class JiandanService implements IJiandanService {
         List<Jiandan> queryList = jiandanDao.selectByLimitSelective(jiandanQueryDto);
         if (null != queryList) {
             List<JiandanDto> jianDanDtoList = new ArrayList<JiandanDto>();
+            String[] ignoreProperties = new String[]{};
             for (Jiandan j : queryList) {
                 JiandanDto jiandanDto = new JiandanDto();
-                BeanUtils.copyProperties(j, jiandanDto);
+                BeanUtils.copyProperties(j, jiandanDto, ignoreProperties);
                 jianDanDtoList.add(jiandanDto);
             }
             jiandanResponseDto.setJiandanList(jianDanDtoList);
@@ -63,8 +65,8 @@ public class JiandanService implements IJiandanService {
 
 
     @Override
+    @Cacheable(value = "jiandanCache_redis", key = "#p0")
     public Jiandan selectById(Integer id) {
-        logger.info("start to query database");
 
         return jiandanDao.selectById(id);
     }

@@ -1,7 +1,5 @@
 package dto;
 
-import model.Jiandan;
-
 import java.io.Serializable;
 import java.util.List;
 

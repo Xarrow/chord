@@ -2,15 +2,12 @@ package controller.jiandan;
 
 import dto.JiandanQueryDto;
 import dto.JiandanResponseDto;
-import exception.InterestExcetion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import service.IJiandanService;
-import test.CacheTestComponent;
 import utils.ResponseUtil;
 import utils.ResponseVo;
 import utils.ResultCode;
@@ -30,14 +27,12 @@ public class JiandanRestController {
     @Resource
     private IJiandanService iJiandanService;
 
-    @Autowired
-    private CacheTestComponent cacheTestComponent;
 
-    @RequestMapping("/query")
+    @RequestMapping(value = "/query", method = RequestMethod.GET)
     public ResponseVo insertJiandan(JiandanQueryDto jiandanQueryDto) {
         ResponseVo responseVo = ResponseUtil.buildVoByResultCode(false, ResultCode.FAILURE);
         try {
-            JiandanResponseDto jiandanResponseDto = cacheTestComponent.selectJiandanByLimitCache(jiandanQueryDto);
+            JiandanResponseDto jiandanResponseDto = iJiandanService.selectJiandanByLimit(jiandanQueryDto);
             System.out.printf(jiandanResponseDto.toString());
             responseVo = ResponseUtil.buildVoBySuccessResult(true, jiandanResponseDto);
         } catch (Exception ex) {
@@ -50,12 +45,10 @@ public class JiandanRestController {
     }
 
 
-//    private JiandanService jiandanService;
-
     @RequestMapping("/test")
     public ResponseVo testJiandan(Integer id) {
         ResponseVo responseVo = ResponseUtil.buildVoBySuccessResult(true,
-                (cacheTestComponent.getJidanByIdCache(id)));
+                (iJiandanService.selectById(id)));
 
         return responseVo;
     }
