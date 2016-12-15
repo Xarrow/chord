@@ -142,7 +142,7 @@
         <if test="ext != null">
             and {ext,jdbcType=INTEGER}
         </if>
-        ORDER BY id
+        ORDER BY id DESC
         LIMIT #{start,jdbcType=INTEGER}
         , #{offset,jdbcType=INTEGER}
     </select>

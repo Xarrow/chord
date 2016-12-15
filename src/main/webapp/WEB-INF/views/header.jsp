@@ -10,10 +10,13 @@
 <html>
 <script src="<c:url value="/public/js/jquery-3.1.0.min.js"/>"></script>
 <script src="<c:url value="/public/js/materialize/js/materialize.min.js"/>"></script>
+<%--lazy-load-js--%>
+<script src="https://www.appelsiini.net/projects/lazyload/jquery.lazyload.min.js"/>
 <%--echarts--%>
 <script src="<c:url value="/public/js/echarts.min.js"/>"></script>
 <link rel="stylesheet" href="<c:url value="/public/css/materialize.min.css"/>">
 <style>
+
     html {
         font-family: GillSans, Calibri, Trebuchet, sans-serif;
     }
@@ -92,6 +95,9 @@
         margin: 2%;
         color: #e0f2f1;
     }
+    body{
+        background-image: url("http://bubkoo.com/images/bg.jpg");
+    }
 
 
 </style>
@@ -113,18 +119,18 @@
 </nav>
 </body>
 <%--<script>--%>
-    <%--window.onload = function () {--%>
-        <%--var video = document.createElement("video");--%>
-        <%--video.autoplay = "";--%>
-        <%--video.loop = true;--%>
-        <%--video.id = "myVideo";--%>
-        <%--video.autoplay = true;--%>
-        <%--video.poster = "";--%>
-        <%--var source = document.createElement("source");--%>
-        <%--source.src = "http://127.0.0.1:8082/H%3A/%E7%94%B5%E5%BD%B1/Facebook%202015%20Year%20in%20Review%20-%20Story%20of%20the%20Year.mp4";--%>
-        <%--video.appendChild(source);--%>
-        <%--document.body.appendChild(video);--%>
-    <%--}--%>
+<%--window.onload = function () {--%>
+<%--var video = document.createElement("video");--%>
+<%--video.autoplay = "";--%>
+<%--video.loop = true;--%>
+<%--video.id = "myVideo";--%>
+<%--video.autoplay = true;--%>
+<%--video.poster = "";--%>
+<%--var source = document.createElement("source");--%>
+<%--source.src = "http://127.0.0.1:8082/H%3A/%E7%94%B5%E5%BD%B1/Facebook%202015%20Year%20in%20Review%20-%20Story%20of%20the%20Year.mp4";--%>
+<%--video.appendChild(source);--%>
+<%--document.body.appendChild(video);--%>
+<%--}--%>
 
 
 <%--</script>--%>
