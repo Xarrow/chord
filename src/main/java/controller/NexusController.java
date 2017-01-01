@@ -4,19 +4,25 @@ import model.ChrodUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import service.ActiveMqProducerService;
 import service.INexusService;
 import utils.ResponseUtil;
 import utils.ResponseVo;
 import utils.ResultCode;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -89,5 +95,30 @@ public class NexusController {
             }
         }
 
+    }
+
+    @Resource
+    private ActiveMqProducerService activeMqProducerService;
+
+
+    @Autowired
+    @Qualifier("activeMQQueue")
+    private Destination destination;
+
+    @RequestMapping(value = "nexus/testsend")
+    public void sendMsg() {
+        activeMqProducerService.sendMessage(destination, "HelloWorld");
+    }
+
+    @RequestMapping(value = "nexus/testrece")
+    @ResponseBody
+    public String receMsg(){
+        String text = "";
+        try {
+            text = activeMqProducerService.receiveMessage(destination).getText();
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
+        return text;
     }
 }

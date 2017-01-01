@@ -25,8 +25,8 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
     <!--mybatis-sqlSessionTemplate-->
     <bean id="sqlSessionTemplate"
-          class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+          class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
 
     <!--使用jdbcTemplate-->
@@ -41,9 +41,9 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
     </bean>
 
     <!--baseDAO-->
-    <bean id="baseDAO" class="dao.impl.BaseDAO">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-        <!--或者-->
-        <!--<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>-->
-    </bean>
+    <!--<bean id="baseDAO" class="dao.impl.BaseDAO">-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+        <!--&lt;!&ndash;或者&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>&ndash;&gt;-->
+    <!--</bean>-->
 </beans>

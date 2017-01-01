@@ -20,7 +20,7 @@ import java.util.List;
  * @Time 2016/11/25.
  */
 @Repository
-public class JiandanDao  implements IJiandanDao {
+public class JiandanDao extends BaseDAO implements IJiandanDao {
 
     @Resource(name = "jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
