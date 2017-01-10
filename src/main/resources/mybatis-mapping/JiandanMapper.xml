@@ -146,4 +146,8 @@
         LIMIT #{start,jdbcType=INTEGER}
         , #{offset,jdbcType=INTEGER}
     </select>
+
+    <select id="getAll" resultType="model.Jiandan">
+        select * from jiandan order by id desc
+    </select>
 </mapper>

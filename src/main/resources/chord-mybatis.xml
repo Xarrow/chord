@@ -15,6 +15,19 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
         <!-- Mapper文件存放的位置，当Mapper文件跟对应的Mapper接口处于同一位置的时候可以不用指定该属性的值 -->
         <property name="mapperLocations" value="classpath*:mybatis-mapping/*.xml"/>
 
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <!--使用下面的方式配置参数，一行配置一个 -->
+                        <value>
+                            params=value1
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -26,7 +39,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
     <!--mybatis-sqlSessionTemplate-->
     <bean id="sqlSessionTemplate"
           class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
-        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
 
     <!--使用jdbcTemplate-->
@@ -42,8 +55,8 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
     <!--baseDAO-->
     <!--<bean id="baseDAO" class="dao.impl.BaseDAO">-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
-        <!--&lt;!&ndash;或者&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>&ndash;&gt;-->
+    <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    <!--&lt;!&ndash;或者&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>&ndash;&gt;-->
     <!--</bean>-->
 </beans>

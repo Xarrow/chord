@@ -313,6 +313,26 @@
         </dependency>
 
 
+        <!--activiti-->
+        <!-- activiti依赖 -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>5.20.0</version>
+        </dependency>
+        <!-- activiti 与 Spring 集成 -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring</artifactId>
+            <version>5.20.0</version>
+        </dependency>
+
+        <!--mybatis分页-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.0</version>
+        </dependency>
     </dependencies>
 
     <!--<modules>-->

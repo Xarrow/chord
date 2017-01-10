@@ -40,7 +40,9 @@ public interface IJiandanDao {
     List<Jiandan> selectByLimitSelective(JiandanQueryDto jiandanQueryDto);
 
 
-
-//    @Cacheable("jiandanCache_redis")
+    //    @Cacheable("jiandanCache_redis")
     Jiandan selectById(Integer id);
+
+
+    List<Jiandan> getAll();
 }

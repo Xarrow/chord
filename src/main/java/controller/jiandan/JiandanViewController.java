@@ -25,14 +25,14 @@ public class JiandanViewController {
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public ModelAndView showJiandan(JiandanQueryDto jiandanQueryDto) {
         ModelAndView modelAndView = new ModelAndView();
-        try {
-            jiandanQueryDto.setOffset(jiandanQueryDto.getOffset()==null?10:jiandanQueryDto.getOffset());
-            jiandanQueryDto.setStart(jiandanQueryDto.getStart()==null?0:jiandanQueryDto.getStart());
-            modelAndView.setViewName("views/jiandan");
-            modelAndView.addObject("JiandanResponseDto",iJiandanService.selectJiandanByLimit(jiandanQueryDto));
-        }catch (Exception ex){
-            logger.error("{} cause a exception:{}",logger.getName(),ex);
-        }
+//        try {
+//            jiandanQueryDto.setOffset(jiandanQueryDto.getOffset()==null?10:jiandanQueryDto.getOffset());
+//            jiandanQueryDto.setStart(jiandanQueryDto.getStart()==null?0:jiandanQueryDto.getStart());
+//            modelAndView.setViewName("views/jiandan");
+//            modelAndView.addObject("JiandanResponseDto",iJiandanService.selectJiandanByLimit(jiandanQueryDto));
+//        }catch (Exception ex){
+//            logger.error("{} cause a exception:{}",logger.getName(),ex);
+//        }
         return modelAndView;
     }
 

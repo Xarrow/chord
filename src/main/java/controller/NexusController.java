@@ -112,7 +112,7 @@ public class NexusController {
 
     @RequestMapping(value = "nexus/testrece")
     @ResponseBody
-    public String receMsg(){
+    public String receMsg() {
         String text = "";
         try {
             text = activeMqProducerService.receiveMessage(destination).getText();
@@ -120,5 +120,11 @@ public class NexusController {
             e.printStackTrace();
         }
         return text;
+    }
+
+    @RequestMapping("test/stack")
+    public String testStack() {
+        return "views/stackInfo";
+
     }
 }

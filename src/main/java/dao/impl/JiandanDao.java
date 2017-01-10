@@ -57,7 +57,6 @@ public class JiandanDao extends BaseDAO implements IJiandanDao {
 
     @Override
     public int getTotalCount() {
-
         return jdbcTemplate.queryForInt("select count(*) as totalCount from jiandan");
     }
 
@@ -75,4 +74,10 @@ public class JiandanDao extends BaseDAO implements IJiandanDao {
                 new Object[]{id}, new BeanPropertyRowMapper<Jiandan>(Jiandan.class));
         return jiandan;
     }
+
+    @Override
+    public List<Jiandan> getAll() {
+        return getSqlSession().selectList("dao.IJiandanDao.getAll");
+    }
+
 }

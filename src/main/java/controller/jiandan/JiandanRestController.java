@@ -4,6 +4,7 @@ import dto.JiandanQueryDto;
 import dto.JiandanResponseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,8 @@ import javax.annotation.Resource;
  * @Author zhang
  * @Time 2016/11/24.
  */
+
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/jiandan/api")
 public class JiandanRestController {
@@ -31,6 +34,7 @@ public class JiandanRestController {
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public ResponseVo insertJiandan(JiandanQueryDto jiandanQueryDto) {
         ResponseVo responseVo = ResponseUtil.buildVoByResultCode(false, ResultCode.FAILURE);
+
         try {
             JiandanResponseDto jiandanResponseDto = iJiandanService.selectJiandanByLimit(jiandanQueryDto);
             System.out.printf(jiandanResponseDto.toString());
@@ -46,10 +50,8 @@ public class JiandanRestController {
 
 
     @RequestMapping("/test")
-    public ResponseVo testJiandan(Integer id) {
-        ResponseVo responseVo = ResponseUtil.buildVoBySuccessResult(true,
-                (iJiandanService.selectById(id)));
-
-        return responseVo;
+    public ResponseVo testJiandan(JiandanQueryDto jiandanQueryDto) {
+        return ResponseUtil.buildVoBySuccessResult(true,
+                (iJiandanService.getAll(jiandanQueryDto)));
     }
 }

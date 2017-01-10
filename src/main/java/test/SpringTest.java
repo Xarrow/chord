@@ -19,10 +19,10 @@ public class SpringTest {
     private IJiandanDao iJiandanDao;
     @Test
     public void  demo1(){
-
-        JiandanQueryDto jiandanQueryDto = new JiandanQueryDto();
-        jiandanQueryDto.setStart(10);
-        jiandanQueryDto.setOffset(20);
-        iJiandanDao.selectByLimitSelective(jiandanQueryDto);
+//
+//        JiandanQueryDto jiandanQueryDto = new JiandanQueryDto();
+//        jiandanQueryDto.setStart(10);
+//        jiandanQueryDto.setOffset(20);
+//        iJiandanDao.selectByLimitSelective(jiandanQueryDto);
     }
 }
