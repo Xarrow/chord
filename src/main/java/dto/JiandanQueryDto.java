@@ -14,6 +14,17 @@ public class JiandanQueryDto extends JiandanDto implements Serializable {
 
     private Integer rows;
 
+    private Integer offset;
+
+    private Integer start;
+
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
+    }
 
     public Integer getRows() {
         return rows;
@@ -29,6 +40,14 @@ public class JiandanQueryDto extends JiandanDto implements Serializable {
 
     public void setPage(Integer page) {
         this.page = page;
+    }
+
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public Integer getStart() {
+        return start;
     }
 }
 

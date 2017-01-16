@@ -9,6 +9,7 @@ import javax.jms.TextMessage;
  * @Time:2017/1/2
  */
 public interface ActiveMqProducerService {
+
     void sendMessage(Destination destination, final String messages);
 
     TextMessage receiveMessage(Destination destination);

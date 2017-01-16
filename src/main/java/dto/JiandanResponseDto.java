@@ -10,6 +10,12 @@ import java.util.List;
 public class JiandanResponseDto implements Serializable {
 
     private List<JiandanDto> jiandanList;
+
+    private Integer page;
+
+    private List<Object> rows;
+
+
     /**
      * 总数
      */
@@ -30,6 +36,22 @@ public class JiandanResponseDto implements Serializable {
      */
     private Integer pages;
 
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public List<Object> getRows() {
+        return rows;
+    }
+
+    public void setRows(List<Object> rows) {
+        this.rows = rows;
+    }
 
     public List<JiandanDto> getJiandanList() {
         return jiandanList;

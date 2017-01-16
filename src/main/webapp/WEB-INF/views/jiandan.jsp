@@ -11,8 +11,8 @@
 <jsp:include page="/header"/>
 <div class="container">
     <div class="card z-depth-3">
-        <c:forEach items="${JiandanResponseDto.jiandanList}" var="i" begin="0"
-                   end="${JiandanResponseDto.jiandanList.size()}">
+        <c:forEach items='${resultMap.get("rows")}' var="i" begin="0"
+                   end='${resultMap.get("rows").size()}'>
             <div class="row" style="margin: 10px">
                 <div class="col s12 m4 l2"></div>
                 <div class="col s12 m4 l8 card-panel hoverable">
@@ -32,27 +32,32 @@
             <div class="col s12 m4 l2"></div>
             <div class="col s12 m4 l8">
                 <ul class="pagination center">
+                    <c:if test="${dto.page>1}">
+                        <li class="waves-effect">
+                            <a href="${pageContext.request.contextPath}/jiandan/view/test2?page=${dto.page-1}">
+                                <i class="material-icons">chevron_left</i>
+                            </a>
+                        </li>
+                    </c:if>
                     <li class="waves-effect"><a
-                            href="${pageContext.request.contextPath}/jiandan/view/test?start=${JiandanResponseDto.start-5}"><i
-                            class="material-icons">chevron_left</i></a></li>
-                    <li class="waves-effect"><a
-                            href="${pageContext.request.contextPath}/jiandan/view/test?start=${JiandanResponseDto.start}">
-                        ${JiandanResponseDto.start}</a></li>
-                    <li class="waves-effect"><a
-                            href="${pageContext.request.contextPath}/jiandan/view/test?start=${JiandanResponseDto.start+1}">${JiandanResponseDto.start+1}</a>
+                            href="${pageContext.request.contextPath}/jiandan/view/test2?page=${dto.page+1}">${dto.page+1}</a>
                     </li>
                     <li class="waves-effect"><a
-                            href="${pageContext.request.contextPath}/jiandan/view/test?start=${JiandanResponseDto.start+2}">${JiandanResponseDto.start+2}</a>
+                            href="${pageContext.request.contextPath}/jiandan/view/test2?page=${dto.page+2}">${dto.page+2}</a>
                     </li>
                     <li class="waves-effect"><a
-                            href="${pageContext.request.contextPath}/jiandan/view/test?start=${JiandanResponseDto.start+3}">${JiandanResponseDto.start+3}</a>
+                            href="${pageContext.request.contextPath}/jiandan/view/test2?page=${dto.page+3}">${dto.page+3}</a>
                     </li>
                     <li class="waves-effect"><a
-                            href="${pageContext.request.contextPath}/jiandan/view/test?start=${JiandanResponseDto.start+4}">${JiandanResponseDto.start+4}</a>
+                            href="${pageContext.request.contextPath}/jiandan/view/test2?page=${dto.page+4}">${dto.page+4}</a>
                     </li>
                     <li class="waves-effect"><a
-                            href="${pageContext.request.contextPath}/jiandan/view/test?start=${JiandanResponseDto.start+5}"><i
-                            class="material-icons">chevron_right</i></a></li>
+                            href="${pageContext.request.contextPath}/jiandan/view/test2?page=${dto.page+5}">${dto.page+5}</a>
+                    </li>
+                    <li class="waves-effect"><a
+                            href="${pageContext.request.contextPath}/jiandan/view/test2?page=${dto.page+1}">
+                        <i class="material-icons">chevron_right</i></a></li>
+
                 </ul>
             </div>
             <div class="col s12 m4 l2"></div>
