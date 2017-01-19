@@ -1,10 +1,11 @@
 package controller;
 
 import model.ChrodUser;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,9 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import service.ActiveMqProducerService;
 import service.INexusService;
-import utils.ResponseUtil;
-import utils.ResponseVo;
-import utils.ResultCode;
+import utils.*;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
@@ -33,6 +32,9 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class NexusController {
+
+    private static final Log logger = LogFactory.getLog(NexusController.class);
+
     @Autowired
     private INexusService iNexusService;
 
@@ -70,8 +72,7 @@ public class NexusController {
     @RequestMapping("/nexus/tn_food/{area}")
     @ResponseBody
     public ResponseVo nexusTnFood(@PathVariable String area) {
-        ResponseVo responseVo = ResponseUtil.buildVoByResultCode(false, ResultCode.FAILURE);
-        responseVo = ResponseUtil.buildVoByResultCode(true, ResultCode.SUCCESS, iNexusService.customerData(area));
+        ResponseVo responseVo = ResponseUtil.buildVoByResultCode(true, ResultCode.SUCCESS, iNexusService.customerData(area));
         return responseVo;
     }
 
@@ -123,8 +124,12 @@ public class NexusController {
     }
 
     @RequestMapping("test/stack")
-    public String testStack() {
-        return "views/stackInfo";
+    public String testStack(HttpServletRequest request) {
+        if (logger.isDebugEnabled()) {
+            new utils.Foo();
+            logger.info("invoke kotlin return :" + utils.KotlinUtilsKt.bar(1, 2));
 
+        }
+        return "views/stackInfo";
     }
 }

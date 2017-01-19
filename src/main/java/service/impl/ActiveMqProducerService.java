@@ -30,6 +30,7 @@ public class ActiveMqProducerService implements service.ActiveMqProducerService 
 
     @Override
     public TextMessage receiveMessage(Destination destination) {
+
         TextMessage textMessage = (TextMessage) jmsTemplate.receive(destination);
         return textMessage;
     }
