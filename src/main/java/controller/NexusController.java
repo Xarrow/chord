@@ -142,4 +142,10 @@ public class NexusController {
     public String test2(HttpServletRequest request) {
         return "views/test2";
     }
+
+
+    @RequestMapping("test/test3")
+    public String test3(HttpServletRequest request) {
+        return "views/test3";
+    }
 }

@@ -47,7 +47,7 @@ public class JiandanViewController {
             modelAndView.addObject("resultMap", iJiandanService.getAll(jiandanQueryDto));
             modelAndView.setViewName("views/jiandan");
             return modelAndView;
-        }else {
+        } else {
             modelAndView.setViewName("views/400");
             return modelAndView;
         }

