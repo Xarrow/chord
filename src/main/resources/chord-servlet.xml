@@ -11,15 +11,15 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
     <!--
-    <context:annotation-config>
-    declares support for general annotations
-    such as @Required, @Autowired, @PostConstruct, and so on.
+        <context:annotation-config>
+        declares support for general annotations
+        such as @Required, @Autowired, @PostConstruct, and so on.
 
-    <mvc:annotation-driven />
-    declares explicit support for annotation-driven MVC controllers
-    (i.e. @RequestMapping, @Controller, although support for those
-    is the default behaviour), as well as adding support for declarative
-    validation via @Valid and message body marshalling with @RequestBody/ResponseBody
+        <mvc:annotation-driven />
+        declares explicit support for annotation-driven MVC controllers
+        (i.e. @RequestMapping, @Controller, although support for those
+        is the default behaviour), as well as adding support for declarative
+        validation via @Valid and message body marshalling with @RequestBody/ResponseBody
     -->
     <mvc:annotation-driven/>
     <context:annotation-config/>
@@ -47,6 +47,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
         <mvc:cache-control max-age="3600" cache-public="true"/>
     </mvn:resources>
 
+    <!--spring 拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="myInterceptor" class="utils.MyInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
     <!-- Json 和对象转化 -->
@@ -60,8 +67,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
     </bean>
 
     <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
-    <bean
-            class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <ref bean="mappingJackson2HttpMessageConverter"/><!-- json转换器 -->

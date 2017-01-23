@@ -11,5 +11,9 @@ class Foo
 
 fun bar(a: Int, b: Int): String {
     println("a+b is :" + a + b)
-    return "Hello kotlin"
+    return "Hello"
+}
+
+fun bar2(a: String, b: String): String {
+    return "11111"
 }

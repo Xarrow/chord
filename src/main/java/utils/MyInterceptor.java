@@ -7,6 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Author ZhangJian
@@ -26,8 +28,10 @@ public class MyInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
+    public boolean preHandle(HttpServletRequest request,
+                             HttpServletResponse response,
                              Object handler) throws Exception {
+
         logger.info("客户端 - [" + request.getRemoteAddr() + "] - " +
                 "请求url - [" + request.getRequestURI() + "] " +
                 "请求参数 - [" + request.getQueryString() + "]");
@@ -44,7 +48,9 @@ public class MyInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+    public void postHandle(HttpServletRequest request,
+                           HttpServletResponse response,
+                           Object handler,
                            ModelAndView modelAndView) throws Exception {
     }
 
@@ -60,7 +66,8 @@ public class MyInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request,
-                                HttpServletResponse response, Object handler,
+                                HttpServletResponse response,
+                                Object handler,
                                 Exception ex) throws Exception {
 
         if (request.getRequestURL().indexOf("api") > 0) {

@@ -132,4 +132,14 @@ public class NexusController {
         }
         return "views/stackInfo";
     }
+
+    @RequestMapping("test/test1")
+    public String test1(HttpServletRequest request) {
+        return "views/test1";
+    }
+
+    @RequestMapping("test/test2")
+    public String test2(HttpServletRequest request) {
+        return "views/test2";
+    }
 }

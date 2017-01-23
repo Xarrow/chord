@@ -15,6 +15,26 @@
 <%--echarts--%>
 <script src="<c:url value="/public/js/echarts.min.js"/>"></script>
 <link rel="stylesheet" href="<c:url value="/public/css/materialize.min.css"/>">
+
+<%--jquery-confirm--%>
+<script src="${pageContext.request.contextPath}/public/js/jquery-confirm.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/jquery-confirm.css"/>
+<%--防止运营商劫持Framekiller --%>
+<%--@See http://justcoding.iteye.com/blog/2049127--%>
+
+<script>
+    $(function () {
+        if (self != window.top) {
+            alert("你的网络可能被运营商劫持!");
+            console.log("real url: " + self.location.href);
+            top.location = self.location;
+//            let d = window.parent.document;
+//            d.getElementsByTagName("html")[0].remove(d.getElementsByTagName("iframe"));
+        } else {
+            document.documentElement.style.display = 'block';
+        }
+    });
+</script>
 <style>
 
     html {
@@ -95,7 +115,8 @@
         margin: 2%;
         color: #e0f2f1;
     }
-    body{
+
+    body {
         background-image: url("http://bubkoo.com/images/bg.jpg");
     }
 
