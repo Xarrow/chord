@@ -82,6 +82,7 @@ public class JiandanService implements IJiandanService {
      * @return map
      */
     @Override
+    @Cacheable(value = "jiandanCache_redis2", key = "#p0")
     public Map<String, Object> getAll(JiandanQueryDto jiandanQueryDto) {
         if (jiandanQueryDto.getPage() == null) {
             jiandanQueryDto.setPage(1);
@@ -97,8 +98,6 @@ public class JiandanService implements IJiandanService {
         resMap.put("total", page.getTotal());
         resMap.put("page", jiandanList.size());
         return resMap;
-
     }
-
 
 }
