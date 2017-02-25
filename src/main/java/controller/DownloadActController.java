@@ -21,8 +21,8 @@ import java.util.Map;
 @Controller
 public class DownloadActController {
     @RequestMapping(value = "exportExcel")
-    public String download(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String fileName = ""+System.currentTimeMillis();
+    public String download(HttpServletResponse response) throws IOException {
+        String fileName = "" + System.currentTimeMillis();
         //填充projects数据
         List<Project> projects = createData();
         List<Map<String, Object>> list = createExcelRecord(projects);
@@ -77,14 +77,12 @@ public class DownloadActController {
     }
 
     private List<Map<String, Object>> createExcelRecord(List<Project> projects) {
-        List<Map<String, Object>> listmap = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = new HashMap<String, Object>();
+        List<Map<String, Object>> listmap = new ArrayList<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("sheetName", "sheet1");
         listmap.add(map);
-        Project project = null;
-        for (int j = 0; j < projects.size(); j++) {
-            project = projects.get(j);
-            Map<String, Object> mapValue = new HashMap<String, Object>();
+        for (Project project : projects) {
+            Map<String, Object> mapValue = new HashMap<>();
             mapValue.put("id", project.getId());
             mapValue.put("name", project.getName());
             mapValue.put("technology", project.getTechnology());
