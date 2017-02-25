@@ -61,6 +61,8 @@
     <h1 style="text-align: center;color: #040309">字体</h1>
     <h1 style="text-align: center;color: white">测试</h1>
     <h1 style="text-align: center;color: white">字体</h1>
+
+    <a href="/exportExcel">导出</a>
     <%--</div>--%>
     <%--<p>${mysqlStr}</p>--%>
 </div>

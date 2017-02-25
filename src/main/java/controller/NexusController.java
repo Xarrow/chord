@@ -1,6 +1,7 @@
 package controller;
 
 import model.ChrodUser;
+import model.Project;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
@@ -146,6 +147,17 @@ public class NexusController {
 
     @RequestMapping("test/test3")
     public String test3(HttpServletRequest request) {
+
         return "views/test3";
     }
+
+    @RequestMapping("beanToXlsSimple.xls")
+    public ModelAndView beanToXlsSimple() {
+        ModelAndView m = new ModelAndView("simpleStudXlsView");
+        Project project = new Project();
+        project.setName("Braxton Miller");
+        m.getModelMap().addAttribute("stud", project);
+        return m;
+    }
 }
+
