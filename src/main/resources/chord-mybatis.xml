@@ -27,7 +27,6 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
                 </bean>
             </array>
         </property>
-
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

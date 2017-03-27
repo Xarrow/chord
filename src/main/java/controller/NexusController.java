@@ -73,8 +73,7 @@ public class NexusController {
     @RequestMapping("/nexus/tn_food/{area}")
     @ResponseBody
     public ResponseVo nexusTnFood(@PathVariable String area) {
-        ResponseVo responseVo = ResponseUtil.buildVoByResultCode(true, ResultCode.SUCCESS, iNexusService.customerData(area));
-        return responseVo;
+        return ResponseUtil.buildVoByResultCode(true, ResultCode.SUCCESS, iNexusService.customerData(area));
     }
 
 

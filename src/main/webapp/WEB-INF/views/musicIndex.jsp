@@ -23,16 +23,14 @@
 <div class="row">
     <div id="mainTitle">
         <h3 style="
-    height: 80px;
-">Search For <span style="color: red; ">< Interest /></span></h3>
+    height: 80px;">Search For <span style="color: red; ">< Interest /></span></h3>
     </div>
     <form method="POST" action="/music/view/url" style="
-    margin-bottom: 0px;
-">
+    margin-bottom: 0px;">
         <div class="col s12 m4 l8  z-depth-2 search-wrapper card waves-effect "
              style="margin-top: 0px;margin-bottom: 0px;">
 
-            <input class="search" name="url" id="search-text" type="text"  placeholder="搜索" style="
+            <input class="search" name="url" id="search-text" type="text" placeholder="搜索" style="
         height: 60px;
         margin-bottom: 0px;
         border-bottom-width: 0px;">

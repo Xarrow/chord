@@ -80,9 +80,23 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
         <property name="suffix" value=".jsp"/>
+        <property name="order" value="1"/>
     </bean>
 
 
+    <!--velocity环境配置-->
+    <bean id="velocityCongfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <!--配置文件路径-->
+        <property name="configLocation" value="classpath:velocity.properties"/>
+        <!--velocity模板路径-->
+        <property name="resourceLoaderPath" value="/WEB-INF/vm/"/>
+    </bean>
+    <!--velocity视图配置-->
+    <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <property name="suffix" value=".vm"/>
+        <property name="prefix" value="/"/>
+        <property name="order" value="0"/>
+    </bean>
     <!-- 文件上传 -->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
