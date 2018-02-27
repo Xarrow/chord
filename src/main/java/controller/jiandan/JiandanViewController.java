@@ -2,7 +2,6 @@ package controller.jiandan;
 
 import dto.JiandanQueryDto;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import service.IJiandanService;
 
 import javax.annotation.Resource;
-import java.util.Map;
 
 /**
  * @Author zhang
@@ -39,7 +37,8 @@ public class JiandanViewController {
     }
 
     @RequestMapping(value = "test2", method = RequestMethod.GET)
-    public ModelAndView test2(JiandanQueryDto jiandanQueryDto, @RequestHeader("user-agent") String agent) {
+    public ModelAndView test2(JiandanQueryDto jiandanQueryDto,
+                              @RequestHeader("user-agent") String agent) {
         logger.info("客户端来源:[{}]", agent);
         ModelAndView modelAndView = new ModelAndView();
         if (agent.toLowerCase().indexOf("chrome") > 0) {

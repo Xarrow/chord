@@ -1,6 +1,5 @@
 package test;
 
-import com.google.common.base.Strings;
 import org.junit.Test;
 
 /**
